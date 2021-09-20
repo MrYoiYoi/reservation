@@ -104,6 +104,7 @@ function nameCheck() {
   	        	//alert(data);
   	        	//console.log("성공 여부" + result);
   	        	
+  	        	
   	        		if(data != 1){
   						$('#time_input_re').css("color", "blue");
   						$("#time_input_re").text("예약 가능합니다");

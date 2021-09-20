@@ -54,6 +54,12 @@ public class ReservationController {
 		
 		return "index";
 	}
+	
+	/**
+	 * 예약시간과 날짜 중복 확인
+	 * @param rv
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping(value = "timeCheck", method = RequestMethod.POST)
 	public int timeCheck(Reservation rv){
@@ -65,8 +71,12 @@ public class ReservationController {
 		
 		logger.info("결과값 = " + result);
 		
+		//result = 1 >> 중복
+		//result = 0 >> 비어있음
 		
 		return result;
+		
+		
 //	@RequestMapping(value = "timeCheck", method = RequestMethod.POST)
 //	@ResponseBody
 //	public String timeCheck(String reservation_time, String reservation_date){
