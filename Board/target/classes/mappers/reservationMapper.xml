@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.scit.board.dao.ReservationMapper">
+<!-- 글 저장 -->
+<insert id="insertReservation" parameterType="Reservation">
+INSERT INTO reservation
+(
+	reservation_num
+	, username
+	, reservation_date
+	, reservation_time
+	
+)
+VALUES
+(
+	reservation_seq.nextval
+	, #{username}
+	, #{reservation_date}
+	, #{reservation_time}
+)
+</insert>
+
+<select id="timeCheck" resultType="int" parameterType="Reservation">
+  	
+SELECT 
+	count(*) 
+FROM 
+	reservation
+WHERE 
+	reservation_time = #{reservation_time}
+AND
+	reservation_date = #{reservation_date}
+  	
+</select>
+
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
