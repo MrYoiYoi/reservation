@@ -22,6 +22,19 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="net.scit.board" />
+		<!-- LoginInterceptor클래스를 bean으로 등록 -->
+	<beans:bean id="loginInterceptor" class="net.scit.board.intercepter.LoginInterceptor" />
+	
+	<interceptors>
+		<interceptor>
+			
+			<mapping path="/reservation" />
+			
+			
+			<beans:ref bean="loginInterceptor"/>
+			
+		</interceptor>
+	</interceptors>
 	
 	
 	

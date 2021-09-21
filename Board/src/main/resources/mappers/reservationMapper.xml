@@ -12,6 +12,7 @@ INSERT INTO reservation
 	, username
 	, reservation_date
 	, reservation_time
+	, userid
 	
 )
 VALUES
@@ -20,6 +21,7 @@ VALUES
 	, #{username}
 	, #{reservation_date}
 	, #{reservation_time}
+	, #{userid}
 )
 </insert>
 

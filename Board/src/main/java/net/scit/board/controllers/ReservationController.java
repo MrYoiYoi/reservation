@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import net.scit.board.dao.ReservationRepository;
+import net.scit.board.vo.Member;
 import net.scit.board.vo.Reservation;
 
 
@@ -36,12 +37,21 @@ public class ReservationController {
 	 * @return
 	 */
 	@RequestMapping(value = "/reservation", method = RequestMethod.POST)
-	public String reservation(HttpSession session, Reservation rv) {
+	public String reservation(HttpSession session, Reservation rv, Model model) {
+		
+		Object object = session.getAttribute("loginId");
+		String userid = (String) object;
+		logger.info("member : {}", userid);
+		
+		Object object2 = session.getAttribute("loginName");
+		String username = (String) object2;
+		logger.info("member : {}", username);
 		
 		int result = repository.timeCheck(rv);
-		
+		String message = "";
 		if (result >=1) {
-			
+			message = "예약을 할 수 없습니다.";
+			model.addAttribute("message", message);
 			return "board/reservation";
 		}
 		else {

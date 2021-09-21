@@ -15,27 +15,6 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
-<script>
-
-/**
- * 이름체크, 시간 중복확인
- */
-function nameCheck() {
-	
-	let username = document.getElementById("username");
-	
-	
-	if(username.value.trim().length == 0) {
-		alert("이름을 입력해주세요");
-		username.select();
-		return false;
-		}
-	
-	
-	}
-
-</script>
-
 </head>
 <body>
 
@@ -43,8 +22,14 @@ function nameCheck() {
 	<h2>[ 병원 예약 ]</h2>
 	<form action="reservation" method="POST">
 		<!-- <input type="datetime-local" step="1000" value="날짜" id="reservation_date" class="reservation_date"> -->
-		
+		<input type="hidden" name="userid" value="${sessionScope.loginId}">
 		<table>
+			<tr>
+				<td>이름</td>
+				<td>
+					<input type="text" id="username" name="username" value="${sessionScope.loginName}">
+				</td>
+			</tr>
 			<tr>
 				<td>날짜</td>
 				<td>
@@ -58,15 +43,10 @@ function nameCheck() {
 					<span id="time_input_re"></span>
 				</td>
 			</tr>				
-			<tr>
-				<td>이름</td>
-				<td>
-					<input type="text" name="username" id="username">
-				</td>
-			</tr>
+			
 		</table>
-		
-		<input type="submit" class="btn btn-info" value="예약하기" onclick="return nameCheck();">
+		<!-- <input type="submit" class="btn btn-info" value="예약하기" onclick="return nameCheck();"> -->
+		<input type="submit" class="btn btn-info" value="예약하기">
 		
 <!-- 시간 정해놓기 (9시부터 17시까지) 점심시간은 아직 안됨 -->		
 	<script>
