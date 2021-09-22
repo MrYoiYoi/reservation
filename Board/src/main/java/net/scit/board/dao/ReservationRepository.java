@@ -1,5 +1,6 @@
 package net.scit.board.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -57,5 +58,42 @@ public class ReservationRepository {
 		return result;
 	}
 
+	public List<Reservation> selectReservation(String userid) {
+		ReservationMapper mapper = session.getMapper(ReservationMapper.class);
+		
+		List<Reservation> list = null;
+		
+		try {
+			list = mapper.selectReservation(userid);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -38,6 +38,23 @@ AND
   	
 </select>
 
+<!--내 예약 내역 조회 -->
+<select id="selectReservation" resultType="Reservation" parameterType="String">
+
+ SELECT
+     reservation_num
+     , userid
+     , username
+     , to_char(reservation_date, 'YYYY-MM-DD') as reservation_date
+     , treatment_kind
+     , reservation_time
+ FROM Reservation
+  where 
+  	userid = #{userid}
+ 
+ ORDER BY reservation_num DESC
+
+</select>
 
 
 
