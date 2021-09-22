@@ -11,6 +11,10 @@ public class Reservation {
 	public String reservation_date;
 	public String treatment_kind;
 	public String reservation_time;
+	private String email;
+	private String birth;
+	private String gender;
+	private String phone;
 	
 }
 //CREATE TABLE reservation
