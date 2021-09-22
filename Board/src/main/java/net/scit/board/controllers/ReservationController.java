@@ -3,6 +3,7 @@ package net.scit.board.controllers;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
+
 import net.scit.board.dao.ReservationRepository;
 import net.scit.board.vo.Member;
 import net.scit.board.vo.Reservation;
@@ -29,6 +32,27 @@ public class ReservationController {
 
 	@Autowired
 	ReservationRepository repository;
+	
+	@RequestMapping("/listReservation")
+	public String listReservation(Model model, HttpSession session) {
+		
+//		String loginId = (String)session.getAttribute("loginId");
+		
+		Object object = session.getAttribute("loginId");
+	      String userid = (String) object;
+	      logger.info("member : {}", userid);
+		
+		List<Reservation> list = repository.selectReservation(userid);
+		System.out.println(list);
+		
+		
+		model.addAttribute("list", list);	
+		
+		return "board/listReservation";
+	}
+	
+	
+	
 	
 	/**
 	 * 예약 등록을 위한 요청

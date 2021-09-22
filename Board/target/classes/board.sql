@@ -35,14 +35,15 @@ CREATE TABLE board
 
 CREATE SEQUENCE board_seq;
 
--- 댓글(Reply)
-CREATE TABLE reply
+-- 예약 테이블
+CREATE TABLE reservation
 (
-	replynum  number primary key,		-- 댓글 번호
-	boardnum  number not null references board(boardnum), -- 참조하는 본문글번호
-	userid    varchar2(50)   not null,	-- 댓글 작성자 아이디
-	replytext varchar2(1000) not null,	-- 댓글 내용
-	regdate   date default sysdate		-- 댓글 작성일
+	reservation_num number primary key,	-- 예약번호
+	userid   varchar2(50) not null,
+	username   varchar2(50) not null,	-- 아이디
+	reservation_date date not null,	-- 예약날짜
+	treatment_kind varchar(20) default '검진',		-- 진료종류
+	reservation_time varchar(50) DEFAULT sysdate-- 예약시간
 );
 
-CREATE SEQUENCE reply_seq;
+create SEQUENCE reservationseq;

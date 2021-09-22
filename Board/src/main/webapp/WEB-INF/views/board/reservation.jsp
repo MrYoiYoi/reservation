@@ -48,6 +48,8 @@
 		<!-- <input type="submit" class="btn btn-info" value="예약하기" onclick="return nameCheck();"> -->
 		<input type="submit" class="btn btn-info" value="예약하기">
 		
+		
+		
 <!-- 시간 정해놓기 (9시부터 17시까지) 점심시간은 아직 안됨 -->		
 	<script>
 	
@@ -125,7 +127,9 @@
 	document.getElementById("datefield").setAttribute("min", today);
 	today2=yyyy+'-'+mm+'-'+(dd+7);
 	document.getElementById("datefield").setAttribute("max", today2);
-	</script>	
+	</script>
+	
+		
 
 </div>
 </body>

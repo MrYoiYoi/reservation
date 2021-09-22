@@ -6,11 +6,12 @@ import lombok.Data;
 public class Reservation {
 	
 	public int reservation_num;
+	public String userid;
 	public String username;
 	public String reservation_date;
 	public String treatment_kind;
 	public String reservation_time;
-	public String userid;
+	
 }
 //CREATE TABLE reservation
 //(

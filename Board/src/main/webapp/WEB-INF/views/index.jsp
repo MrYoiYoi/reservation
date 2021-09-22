@@ -22,10 +22,18 @@
 			<a href="logout">로그아웃</a>
 		</li>
 		<li><a href="update">개인정보 수정</a></li>
+		<li>
+		<a href="listReservation">
+			내 예약 확인
+		</a>
+	</li>
 	</c:if>
 	
 	<li><a href="listboard">게시판</a></li>
 	<li><a href="reservation">예약하기</a></li>
+	
+	
+	
 </ul>
 </body>
 </html>
