@@ -9,12 +9,7 @@
 <title>에약 조회</title>
 
 	
-<script>
-	function detailBoard(num) {
-		let targetPlace = 'detailboard?reservation_num=' + num;
-		location.href = targetPlace;
-	}
-</script>
+
 </head>
 <body>
 <div class="wrapper">
@@ -33,9 +28,9 @@
 		<!-- 게시글 출력 -->
 		<c:forEach var="board" items="${list}" varStatus="stat">		
 			<tr>
-				<td>${board.reservation_num} / ${stat.count}</td>
+				<td>${board.reservation_num} </td>
 				<td class="title">
-					<a href="javascript:detailBoard(${board.reservation_num});">${board.username}</a>
+					${board.username}
 				</td>
 				<td>${board.reservation_date}</td>
 				<td>${board.treatment_kind}</td>
